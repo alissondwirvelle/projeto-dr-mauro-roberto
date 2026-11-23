@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Keep the institutional experience on the index route with in-page section anchors because the requested site is explicitly one continuous page.
+- Use CDN image pointers and label illustrative healthcare images so they are not mistaken for the actual practitioner or premises.
+- Until contact details are confirmed, appointment controls open an explanatory dialog rather than linking to an invented phone number.
+- Keep page-specific visual rules and semantic palette tokens in src/styles.css; use the shared Button and Radix controls for interactions.
