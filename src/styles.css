@@ -489,7 +489,7 @@
   line-height: 1.8;
   margin-top: 10px;
 }
-.home-treatment > button {
+.home-treatment > .appointment-button {
   margin-left: auto;
 }
 .about-grid {
@@ -565,7 +565,7 @@
   width: 15px;
   color: var(--primary);
 }
-.about-copy > button {
+.about-copy > .appointment-button {
   margin-top: 27px;
 }
 .process-section {
@@ -686,7 +686,7 @@
   max-width: 350px;
   margin-top: 18px;
 }
-.location-home > button {
+.location-home > .appointment-button {
   margin-top: 25px;
 }
 .testimonial-section {
@@ -1025,7 +1025,7 @@
   .home-treatment {
     flex-wrap: wrap;
   }
-  .home-treatment > button {
+  .home-treatment > .appointment-button {
     margin-left: 62px;
   }
   .section {
@@ -1258,7 +1258,7 @@
   .home-treatment .eyebrow {
     font-size: 8px;
   }
-  .home-treatment > button {
+  .home-treatment > .appointment-button {
     margin-left: 0;
     width: 100%;
     font-size: 11px;

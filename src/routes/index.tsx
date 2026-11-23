@@ -42,6 +42,7 @@ import {
 } from "@/components/ui/dialog";
 import hero from "@/assets/physio-hero.asset.json";
 import room from "@/assets/physio-room.asset.json";
+import { whatsappDisplay, whatsappUrl } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -164,7 +165,6 @@ function Brand({ inverted = false }: { inverted?: boolean }) {
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
   const [socialOpen, setSocialOpen] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -181,10 +181,12 @@ function Index() {
     return () => observer.disconnect();
   }, []);
   const appointment = (label = "Agendar avaliação", quiet = false) => (
-    <Button variant={quiet ? "quiet" : "appointment"} onClick={() => setContactOpen(true)}>
-      <MessageCircle aria-hidden="true" />
-      {label}
-      <ArrowUpRight aria-hidden="true" />
+    <Button variant={quiet ? "quiet" : "appointment"} asChild>
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+        <MessageCircle aria-hidden="true" />
+        {label}
+        <ArrowUpRight aria-hidden="true" />
+      </a>
     </Button>
   );
   return (
@@ -563,7 +565,7 @@ function Index() {
               <div>
                 <MessageCircle />
                 <span>
-                  TELEFONE / WHATSAPP<small>[Número a informar]</small>
+                  TELEFONE / WHATSAPP<small>{whatsappDisplay}</small>
                 </span>
               </div>
               <div>
@@ -603,34 +605,17 @@ function Index() {
           <span>Fisioterapia · Movimento · Bem-estar</span>
         </div>
       </footer>
-      <Button
-        variant="appointment"
-        className="floating-contact"
-        size="icon"
-        aria-label="Contato pelo WhatsApp"
-        title="Falar pelo WhatsApp"
-        onClick={() => setContactOpen(true)}
-      >
-        <MessageCircle />
+      <Button variant="appointment" className="floating-contact" size="icon" asChild>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Contato pelo WhatsApp"
+          title="Falar pelo WhatsApp"
+        >
+          <MessageCircle />
+        </a>
       </Button>
-      <Dialog open={contactOpen} onOpenChange={setContactOpen}>
-        <DialogContent className="contact-dialog">
-          <DialogHeader>
-            <DialogTitle>Agendar sua avaliação</DialogTitle>
-            <DialogDescription>
-              O número de WhatsApp será disponibilizado em breve. Os agendamentos estarão
-              disponíveis assim que os dados de contato forem confirmados.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="dialog-contact">
-            <MessageCircle />
-            <span>[WhatsApp do profissional a informar]</span>
-          </div>
-          <Button variant="appointment" onClick={() => setContactOpen(false)}>
-            Entendi <Check />
-          </Button>
-        </DialogContent>
-      </Dialog>
       <Dialog open={socialOpen} onOpenChange={setSocialOpen}>
         <DialogContent className="contact-dialog">
           <DialogHeader>

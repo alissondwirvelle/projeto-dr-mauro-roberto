@@ -31,5 +31,5 @@ use the editor.
 
 - Keep the institutional experience on the index route with in-page section anchors because the requested site is explicitly one continuous page.
 - Use CDN image pointers and label illustrative healthcare images so they are not mistaken for the actual practitioner or premises.
-- Until contact details are confirmed, appointment controls open an explanatory dialog rather than linking to an invented phone number.
+- Keep the confirmed WhatsApp destination in src/lib/contact.ts and reuse it for every appointment control so contact links remain consistent.
 - Keep page-specific visual rules and semantic palette tokens in src/styles.css; use the shared Button and Radix controls for interactions.
