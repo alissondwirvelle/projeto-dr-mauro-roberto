@@ -16,6 +16,7 @@ import {
   Menu,
   MessageCircle,
   MoveUpRight,
+  Plus,
   Quote,
   ScanLine,
   ShieldCheck,
@@ -324,14 +325,18 @@ function Index() {
         </section>
 
         <section id="dores" className="section pain-section">
-          <div className="container reveal">
-            <div className="section-heading centered">
+          <div className="container reveal pain-content">
+            <div className="section-heading centered pain-heading">
               <span className="eyebrow">ESCUTE O SEU CORPO</span>
               <h2>
-                Você convive com alguma dessas
-                <br className="desktop-break" /> dores no seu dia a dia?
+                Quando a <span className="accent-text title-highlight">dor</span> limita seus
+                movimentos, é hora de olhar para sua{" "}
+                <span className="accent-text title-highlight">saúde</span>.
               </h2>
-              <p>O desconforto não precisa fazer parte da sua rotina.</p>
+              <p>
+                Cada caso é diferente. Conte o que está sentindo e converse sobre possibilidades
+                de cuidado.
+              </p>
             </div>
             <div className="pain-grid">
               {pains.map((item) => (
@@ -343,27 +348,23 @@ function Index() {
               ))}
             </div>
             <div className="section-action">
-              {appointment()}
+              {appointment("Quero entender minhas opções")}
               <span>O primeiro passo é entender o que você precisa.</span>
             </div>
           </div>
         </section>
 
         <section id="tratamentos" className="section treatment-section">
-          <div className="container reveal">
-            <div className="section-heading split-heading">
-              <div>
-                <span className="eyebrow">MOVIMENTO É QUALIDADE DE VIDA</span>
-                <h2>
-                  Cuidado pensado
-                  <br />
-                  para <span className="accent-text">você.</span>
-                </h2>
-              </div>
+          <div className="container reveal treatment-content">
+            <div className="section-heading centered treatment-heading">
+              <span className="eyebrow">MOVIMENTO É QUALIDADE DE VIDA</span>
+              <h2>
+                Recursos terapêuticos para cuidar do seu{" "}
+                <span className="accent-text title-highlight">movimento.</span>
+              </h2>
               <p>
-                Diferentes recursos, um mesmo propósito: cuidar
-                <br className="desktop-break" /> do seu movimento. O tratamento é orientado
-                <br className="desktop-break" /> pela avaliação de cada caso.
+                Cada tratamento é definido de acordo com a avaliação profissional e as necessidades
+                de cada paciente.
               </p>
             </div>
             <div className="treatment-grid">
@@ -383,16 +384,16 @@ function Index() {
               ))}
             </div>
             <div className="home-treatment">
-              <div className="home-treatment-icon">
+              <div className="home-treatment-icon" aria-hidden="true">
                 <House strokeWidth={1.4} />
+                <Plus strokeWidth={1.5} />
               </div>
               <div>
                 <span className="eyebrow">O CUIDADO VAI ATÉ VOCÊ</span>
-                <h3>Atendimento domiciliar</h3>
+                <h3>Fisioterapia no conforto da sua casa</h3>
                 <p>
-                  Reabilitação no conforto de casa para recuperação de fraturas, AVC
-                  <br className="desktop-break" /> e outras necessidades, conforme avaliação
-                  individual.
+                  Atendimento fisioterapêutico em domicílio, com uma abordagem definida de acordo
+                  com suas necessidades.
                 </p>
               </div>
               {appointment("Consultar disponibilidade", true)}
