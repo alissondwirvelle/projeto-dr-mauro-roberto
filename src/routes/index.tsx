@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import {
   Activity,
   ArrowDown,
-  ArrowRight,
   ArrowUpRight,
   Bone,
   CalendarDays,
@@ -42,7 +41,8 @@ import {
 } from "@/components/ui/dialog";
 import hero from "@/assets/physio-hero.asset.json";
 import room from "@/assets/physio-room.asset.json";
-import headerLogo from "@/assets/images/Logo de Fisioterapia e Quiropraxia.png";
+import doctorPortrait from "@/assets/images/IMG_6259-1.jpeg";
+import headerLogo from "@/assets/images/logo-3d.png";
 import { whatsappDisplay, whatsappUrl } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
@@ -286,51 +286,40 @@ function Index() {
       </header>
       <main>
         <section id="inicio" className="hero-section">
-          <img
-            className="hero-photo"
-            src={hero.url}
-            alt="Imagem ilustrativa de um fisioterapeuta realizando mobilização do joelho de uma paciente"
-            fetchPriority="high"
-          />
-          <div className="hero-shade" />
-          <div className="container hero-content">
-            <div className="eyebrow hero-eyebrow">
-              <span /> CUIDADO QUE COLOCA VOCÊ EM MOVIMENTO
+          <div className="container hero-layout">
+            <div className="hero-content">
+              <div className="eyebrow hero-eyebrow">
+                <span /> CUIDADO QUE COLOCA VOCÊ EM MOVIMENTO
+              </div>
+              <h1>
+                Mauro Roberto
+                <span>
+                  Fisioterapia para
+                  <br />
+                  voltar a viver <em>bem.</em>
+                </span>
+              </h1>
+              <p>
+                Menos limitações, mais movimento: atendimento individualizado para recuperar seu
+                bem-estar, presencialmente ou em domicílio.
+              </p>
+              <div className="hero-buttons">
+                {appointment("Quero iniciar meu tratamento")}
+              </div>
             </div>
-            <h1>
-              Mauro Roberto
-              <span>
-                Fisioterapia para
-                <br />
-                voltar a viver <em>bem.</em>
-              </span>
-            </h1>
-            <p>
-              Menos limitações. Mais movimento.
-              <br />
-              Um cuidado individualizado para recuperar seu
-              <br className="desktop-break" /> bem-estar e sua qualidade de vida.
-            </p>
-            <div className="hero-buttons">
-              {appointment("Agendar minha avaliação")}
-              <a href="#tratamentos" className="hero-text-link">
-                Conheça os tratamentos <ArrowRight size={17} />
-              </a>
-            </div>
-            <div className="hero-assurances">
-              <span>
-                <UserRound /> Atendimento individualizado
-              </span>
-              <span>
-                <House /> Presencial e domiciliar
-              </span>
+            <div className="hero-portrait-frame">
+              <img
+                className="hero-portrait"
+                src={doctorPortrait}
+                alt="Dr. Mauro Roberto"
+                fetchPriority="high"
+              />
             </div>
           </div>
           <div className="hero-bottom container">
             <a href="#dores">
               <ArrowDown size={15} /> SEU PRIMEIRO PASSO COMEÇA AQUI
             </a>
-            <span>Imagem ilustrativa</span>
           </div>
         </section>
 
