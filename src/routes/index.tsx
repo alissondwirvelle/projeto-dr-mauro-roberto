@@ -42,6 +42,7 @@ import {
 } from "@/components/ui/dialog";
 import hero from "@/assets/physio-hero.asset.json";
 import room from "@/assets/physio-room.asset.json";
+import headerLogo from "@/assets/images/Logo de Fisioterapia e Quiropraxia.png";
 import { whatsappDisplay, whatsappUrl } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
@@ -67,11 +68,13 @@ export const Route = createFileRoute("/")({
 });
 
 const navigation = [
-  ["Tratamentos", "tratamentos"],
-  ["Sobre", "sobre"],
+  ["Início", "inicio"],
+  ["Soluções", "tratamentos"],
+  ["Sobre mim", "sobre"],
   ["Como funciona", "como-funciona"],
+  ["Depoimentos", "depoimentos"],
   ["Contato", "contato"],
-];
+] as const;
 const pains = [
   {
     icon: Activity,
@@ -163,9 +166,27 @@ function Brand({ inverted = false }: { inverted?: boolean }) {
   );
 }
 
+function HeaderBrand() {
+  return (
+    <a
+      href="#inicio"
+      className="header-brand"
+      aria-label="Mauro Roberto — voltar ao início"
+    >
+      <img
+        src={headerLogo}
+        alt="Mauro Roberto"
+        className="header-logo"
+      />
+    </a>
+  );
+}
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [socialOpen, setSocialOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("inicio");
+  const [headerScrolled, setHeaderScrolled] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
@@ -180,8 +201,30 @@ function Index() {
     document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, []);
-  const appointment = (label = "Agendar avaliação", quiet = false) => (
-    <Button variant={quiet ? "quiet" : "appointment"} asChild>
+  useEffect(() => {
+    const updateHeader = () => {
+      setHeaderScrolled(window.scrollY > 24);
+
+      let current = "inicio";
+      navigation.forEach(([, id]) => {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= 150) {
+          current = id;
+        }
+      });
+      setActiveSection(current);
+    };
+
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    return () => window.removeEventListener("scroll", updateHeader);
+  }, []);
+  const appointment = (label = "Agendar avaliação", quiet = false, headerButton = false) => (
+    <Button
+      variant={quiet ? "quiet" : "appointment"}
+      asChild
+      style={headerButton ? { animationDelay: "980ms" } : undefined}
+    >
       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
         <MessageCircle aria-hidden="true" />
         {label}
@@ -191,18 +234,26 @@ function Index() {
   );
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header${headerScrolled ? " is-scrolled" : ""}`}>
         <div className="container header-inner">
-          <Brand />
+          <HeaderBrand />
           <nav className="desktop-nav" aria-label="Navegação principal">
-            {navigation.map(([label, id]) => (
-              <a key={id} href={`#${id}`}>
+            {navigation.map(([label, id], index) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className={`${activeSection === id ? "is-active " : ""}header-sequence-${index + 1}`}
+                aria-current={activeSection === id ? "page" : undefined}
+                style={{
+                  animationDelay: `${120 + index * 150}ms`,
+                }}
+              >
                 {label}
               </a>
             ))}
           </nav>
           <div className="header-actions">
-            {appointment()}
+            {appointment("Agendar avaliação", false, true)}
             <Button
               variant="ghost"
               size="icon"
@@ -215,16 +266,23 @@ function Index() {
             </Button>
           </div>
         </div>
-        {menuOpen && (
-          <nav className="mobile-nav" aria-label="Navegação no celular">
-            {navigation.map(([label, id]) => (
-              <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>
-                {label}
-                <ChevronRight size={16} />
-              </a>
-            ))}
-          </nav>
-        )}
+        <nav
+          className={`mobile-nav${menuOpen ? " is-open" : ""}`}
+          aria-label="Navegação no celular"
+        >
+          {navigation.map(([label, id]) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className={activeSection === id ? "is-active" : undefined}
+              aria-current={activeSection === id ? "page" : undefined}
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+              <ChevronRight size={16} />
+            </a>
+          ))}
+        </nav>
       </header>
       <main>
         <section id="inicio" className="hero-section">
@@ -491,7 +549,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="section testimonial-section">
+        <section id="depoimentos" className="section testimonial-section">
           <div className="container reveal">
             <div className="section-heading centered">
               <span className="eyebrow">CADA JORNADA IMPORTA</span>
@@ -520,7 +578,7 @@ function Index() {
           </div>
         </section>
 
-        <section id="duvidas" className="section faq-section">
+        <section id="faq" className="section faq-section">
           <div className="container faq-grid reveal">
             <div className="section-heading">
               <span className="eyebrow">PODEMOS ESCLARECER</span>
