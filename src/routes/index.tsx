@@ -210,6 +210,39 @@ function Index() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const testimonialSwipeStartX = useRef<number | null>(null);
   useEffect(() => {
+    const navigationEntry = performance.getEntriesByType("navigation")[0] as
+      | PerformanceNavigationTiming
+      | undefined;
+    const wasReloaded =
+      navigationEntry?.type === "reload" ||
+      (
+        "navigation" in performance &&
+        (performance as Performance & { navigation: { type: number } }).navigation.type === 1
+      );
+
+    if (!wasReloaded) return;
+
+    const previousScrollRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${window.location.pathname}${window.location.search}`,
+    );
+
+    const resetToHero = () => window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    resetToHero();
+    const animationFrame = requestAnimationFrame(() => {
+      resetToHero();
+      requestAnimationFrame(resetToHero);
+    });
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.history.scrollRestoration = previousScrollRestoration;
+    };
+  }, []);
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) =>
         entries.forEach((entry) => {
@@ -779,14 +812,10 @@ function Index() {
         </section>
 
         <section id="faq" className="section faq-section">
-          <div className="container faq-grid reveal">
+          <div className="container faq-grid faq-content reveal">
             <div className="section-heading">
-              <span className="eyebrow">PODEMOS ESCLARECER</span>
-              <h2>
-                Suas dúvidas.
-                <br />
-                Mais tranquilidade.
-              </h2>
+              <span className="eyebrow">TIRE SUAS DÚVIDAS</span>
+              <h2>Perguntas Frequentes</h2>
               <p>
                 Antes de dar o primeiro passo,
                 <br />é natural ter perguntas.
