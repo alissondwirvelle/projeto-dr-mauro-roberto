@@ -8,7 +8,6 @@ import {
   CalendarDays,
   ChevronLeft,
   ChevronRight,
-  Clock3,
   HeartHandshake,
   House,
   Instagram,
@@ -33,17 +32,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import hero from "@/assets/physio-hero.asset.json";
 import doctorPortrait from "@/assets/images/IMG_6259-1.jpeg";
 import mauroPortrait from "@/assets/images/IMG_5034.png";
 import headerLogo from "@/assets/images/logo-3d.png";
+import footerLogo from "@/assets/images/logo-2.png";
 import { whatsappDisplay, whatsappUrl } from "@/lib/contact";
 
 export const Route = createFileRoute("/")({
@@ -173,6 +166,14 @@ function Brand({ inverted = false }: { inverted?: boolean }) {
       className={`brand ${inverted ? "brand-inverse" : ""}`}
       aria-label="Mauro Roberto — início"
     >
+      {inverted ? (
+        <img
+          src={footerLogo}
+          alt="Mauro Roberto"
+          className="footer-logo"
+        />
+      ) : (
+        <>
       <span className="brand-symbol">
         m<span>r</span>
         <i />
@@ -180,6 +181,8 @@ function Brand({ inverted = false }: { inverted?: boolean }) {
       <span className="brand-copy">
         Mauro Roberto<small>FISIOTERAPEUTA</small>
       </span>
+        </>
+      )}
     </a>
   );
 }
@@ -202,7 +205,6 @@ function HeaderBrand() {
 
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [socialOpen, setSocialOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [processStepIndex, setProcessStepIndex] = useState(0);
@@ -836,35 +838,41 @@ function Index() {
         </section>
 
         <section id="contato" className="contact-section">
-          <div className="container reveal">
-            <span className="eyebrow">SEU BEM-ESTAR MERECE ATENÇÃO</span>
-            <h2>
-              Pronto para reconquistar seu bem-estar
-              <br className="desktop-break" /> e viver <span>sem dores?</span>
-            </h2>
+          <div className="container contact-content reveal">
+            <span className="eyebrow">VAMOS CONVERSAR</span>
+            <h2>Seu cuidado pode começar hoje.</h2>
             <p>
-              Vamos conversar sobre o que você precisa.
-              <br />
-              Dê o primeiro passo para cuidar de você.
+              Conheça as possibilidades de atendimento e encontre o caminho mais adequado às suas
+              necessidades.
             </p>
-            {appointment("Falar pelo WhatsApp")}
+            {appointment("Agendar pelo WhatsApp")}
             <div className="contact-details">
               <div>
                 <MessageCircle />
-                <span>
-                  TELEFONE / WHATSAPP<small>{whatsappDisplay}</small>
-                </span>
-              </div>
-              <div>
-                <Clock3 />
-                <span>
-                  DISPONIBILIDADE<small>[Horários a confirmar]</small>
-                </span>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Conversar pelo WhatsApp"
+                >
+                  <span className="contact-detail-label">TELEFONE / WHATSAPP</span>
+                  <small>{whatsappDisplay}</small>
+                </a>
               </div>
               <div>
                 <MapPin />
                 <span>
-                  ENDEREÇO<small>[Endereço a informar]</small>
+                  <span className="contact-detail-label">ENDEREÇO</span>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      "Rua E, nº 40 — Vila da Cohab, Bonito – PE.",
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Abrir o endereço no Google Maps"
+                  >
+                    <small>Rua E, nº 40 — Vila da Cohab, Bonito – PE.</small>
+                  </a>
                 </span>
               </div>
             </div>
@@ -880,39 +888,33 @@ function Index() {
               size="icon"
               aria-label="Instagram do profissional"
               title="Instagram"
-              onClick={() => setSocialOpen(true)}
+              asChild
             >
-              <Instagram />
+              <a
+                href="https://www.instagram.com/dr.maurorobertofisio/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram />
+              </a>
             </Button>
-            {appointment("Entrar em contato", true)}
           </div>
         </div>
         <div className="container footer-bottom">
-          <span>© {new Date().getFullYear()} Mauro Roberto. Todos os direitos reservados.</span>
-          <span>Fisioterapia · Movimento · Bem-estar</span>
+          <span className="footer-copyright">© 2026 Mauro Roberto. Todos os direitos reservados.</span>
+          <span className="footer-signature">
+            Desenvolvido por{" "}
+            <a
+              href="https://www.instagram.com/averoestudiodigital/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Avero Estúdio Digital
+            </a>
+            .
+          </span>
         </div>
       </footer>
-      <Button variant="appointment" className="floating-contact" size="icon" asChild>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Contato pelo WhatsApp"
-          title="Falar pelo WhatsApp"
-        >
-          <MessageCircle />
-        </a>
-      </Button>
-      <Dialog open={socialOpen} onOpenChange={setSocialOpen}>
-        <DialogContent className="contact-dialog">
-          <DialogHeader>
-            <DialogTitle>Instagram de Mauro Roberto</DialogTitle>
-            <DialogDescription>
-              [Perfil oficial a informar após confirmação do profissional.]
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }
