@@ -364,6 +364,7 @@
     opacity: 0;
     transform: translateX(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -375,6 +376,7 @@
     opacity: 0;
     transform: translateY(4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -385,7 +387,7 @@
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 650;
   letter-spacing: 1.7px;
   color: var(--primary);
@@ -567,13 +569,6 @@
   animation: none;
 }
 
-.pain-section .pain-heading .eyebrow {
-  text-decoration-line: underline;
-  text-decoration-color: var(--primary);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 5px;
-}
-
 .pain-section .pain-heading h2 {
   max-width: 760px;
   margin-inline: auto;
@@ -584,10 +579,10 @@
   margin-inline: auto;
 }
 
-.pain-section .pain-heading > .eyebrow,
-.pain-section .pain-heading > h2,
-.pain-section .pain-heading > p,
-.pain-section .pain-grid > .pain-card,
+.pain-section .pain-heading>.eyebrow,
+.pain-section .pain-heading>h2,
+.pain-section .pain-heading>p,
+.pain-section .pain-grid>.pain-card,
 .pain-section .section-action {
   opacity: 0;
   transform: translateY(12px);
@@ -596,36 +591,36 @@
     transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.pain-section .pain-content.is-visible .pain-heading > .eyebrow,
-.pain-section .pain-content.is-visible .pain-heading > h2,
-.pain-section .pain-content.is-visible .pain-heading > p,
-.pain-section .pain-content.is-visible .pain-grid > .pain-card,
+.pain-section .pain-content.is-visible .pain-heading>.eyebrow,
+.pain-section .pain-content.is-visible .pain-heading>h2,
+.pain-section .pain-content.is-visible .pain-heading>p,
+.pain-section .pain-content.is-visible .pain-grid>.pain-card,
 .pain-section .pain-content.is-visible .section-action {
   opacity: 1;
   transform: translateY(0);
 }
 
-.pain-section .pain-content.is-visible .pain-heading > h2 {
+.pain-section .pain-content.is-visible .pain-heading>h2 {
   transition-delay: 70ms;
 }
 
-.pain-section .pain-content.is-visible .pain-heading > p {
+.pain-section .pain-content.is-visible .pain-heading>p {
   transition-delay: 140ms;
 }
 
-.pain-section .pain-content.is-visible .pain-grid > .pain-card:nth-child(1) {
+.pain-section .pain-content.is-visible .pain-grid>.pain-card:nth-child(1) {
   transition-delay: 220ms;
 }
 
-.pain-section .pain-content.is-visible .pain-grid > .pain-card:nth-child(2) {
+.pain-section .pain-content.is-visible .pain-grid>.pain-card:nth-child(2) {
   transition-delay: 330ms;
 }
 
-.pain-section .pain-content.is-visible .pain-grid > .pain-card:nth-child(3) {
+.pain-section .pain-content.is-visible .pain-grid>.pain-card:nth-child(3) {
   transition-delay: 440ms;
 }
 
-.pain-section .pain-content.is-visible .pain-grid > .pain-card:nth-child(4) {
+.pain-section .pain-content.is-visible .pain-grid>.pain-card:nth-child(4) {
   transition-delay: 550ms;
 }
 
@@ -633,7 +628,7 @@
   transition-delay: 1140ms;
 }
 
-.pain-section .pain-content.is-visible .pain-grid > .pain-card:hover {
+.pain-section .pain-content.is-visible .pain-grid>.pain-card:hover {
   transform: translateY(-4px);
 }
 
@@ -641,7 +636,7 @@
   gap: 16px;
 }
 
-.pain-section .section-action > span {
+.pain-section .section-action>span {
   font-size: 12px;
   color: var(--muted-foreground);
 }
@@ -794,48 +789,48 @@
   margin-left: auto;
 }
 
-.treatment-section .treatment-heading > .eyebrow,
-.treatment-section .treatment-heading > h2,
-.treatment-section .treatment-heading > p,
-.treatment-section .treatment-grid > .treatment-card,
+.treatment-section .treatment-heading>.eyebrow,
+.treatment-section .treatment-heading>h2,
+.treatment-section .treatment-heading>p,
+.treatment-section .treatment-grid>.treatment-card,
 .treatment-section .home-treatment {
   opacity: 0;
   translate: 0 12px;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-heading > .eyebrow,
-.treatment-section .treatment-content.is-visible .treatment-heading > h2,
-.treatment-section .treatment-content.is-visible .treatment-heading > p,
-.treatment-section .treatment-content.is-visible .treatment-grid > .treatment-card,
+.treatment-section .treatment-content.is-visible .treatment-heading>.eyebrow,
+.treatment-section .treatment-content.is-visible .treatment-heading>h2,
+.treatment-section .treatment-content.is-visible .treatment-heading>p,
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card,
 .treatment-section .treatment-content.is-visible .home-treatment {
   animation: treatment-reveal 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-heading > h2 {
+.treatment-section .treatment-content.is-visible .treatment-heading>h2 {
   animation-delay: 70ms;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-heading > p {
+.treatment-section .treatment-content.is-visible .treatment-heading>p {
   animation-delay: 140ms;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-grid > .treatment-card:nth-child(1) {
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(1) {
   animation-delay: 250ms;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-grid > .treatment-card:nth-child(2) {
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(2) {
   animation-delay: 360ms;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-grid > .treatment-card:nth-child(3) {
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(3) {
   animation-delay: 470ms;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-grid > .treatment-card:nth-child(4) {
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(4) {
   animation-delay: 580ms;
 }
 
-.treatment-section .treatment-content.is-visible .treatment-grid > .treatment-card:nth-child(5) {
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(5) {
   animation-delay: 690ms;
 }
 
@@ -848,6 +843,7 @@
     opacity: 0;
     translate: 0 12px;
   }
+
   to {
     opacity: 1;
     translate: 0 0;
@@ -855,8 +851,9 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+
   .treatment-section .treatment-card:hover,
-  .treatment-section .treatment-content.is-visible .treatment-grid > .treatment-card:hover {
+  .treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:hover {
     transform: translateY(-4px);
     border-color: var(--primary);
     box-shadow: 0 10px 24px oklch(0.19 0.004 80 / 0.08);
@@ -870,19 +867,62 @@
   align-items: center;
 }
 
+.about-grid.reveal {
+  animation: none;
+}
+
+.about-grid .about-image,
+.about-copy h2,
+.about-description p,
+.about-copy>.appointment-button {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-grid .about-image {
+  transform: translateX(-14px);
+}
+
+.about-grid.is-visible .about-image,
+.about-grid.is-visible .about-copy h2,
+.about-grid.is-visible .about-description p,
+.about-grid.is-visible .about-copy>.appointment-button {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.about-grid.is-visible .about-copy h2 {
+  transition-delay: 80ms;
+}
+
+.about-grid.is-visible .about-description p:first-child {
+  transition-delay: 170ms;
+}
+
+.about-grid.is-visible .about-description p:last-child {
+  transition-delay: 280ms;
+}
+
+.about-grid.is-visible .about-copy>.appointment-button {
+  transition-delay: 400ms;
+}
+
 .about-image {
   position: relative;
   margin: 0;
   height: 510px;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 20px;
 }
 
 .about-image>img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 77% 50%;
+  object-position: center 30%;
 }
 
 .about-image figcaption {
@@ -902,59 +942,47 @@
   font-size: 12px;
 }
 
-.about-image figcaption small {
-  display: block;
-  font-size: 9px;
-  margin-top: 11px;
-  color: var(--on-ink-muted);
-}
-
 .about-copy>.eyebrow {
   margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.about-copy>.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  flex: 0 0 24px;
+  background: var(--primary);
 }
 
 .about-copy h2 {
   font-size: 32px;
 }
 
-.about-copy h3 {
-  font-size: 17px;
-  margin-top: 27px;
-}
-
-.pending-bio {
+.about-description {
   color: var(--muted-foreground);
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.9;
-  margin-top: 13px;
-}
-
-.about-values {
-  border-top: 1px solid var(--border);
-  margin-top: 23px;
-  padding-top: 21px;
   display: grid;
-  gap: 15px;
-}
-
-.about-values span {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 12px;
-}
-
-.about-values svg {
-  width: 15px;
-  color: var(--primary);
+  gap: 14px;
+  margin-top: 17px;
 }
 
 .about-copy>.appointment-button {
-  margin-top: 27px;
+  margin-top: 24px;
 }
 
 .process-section {
   background: var(--secondary);
+}
+
+.process-section .process-content.reveal {
+  animation: none;
+}
+
+.process-section .process-content .section-heading h2 strong {
+  color: var(--primary);
+  font-weight: 800;
 }
 
 .process-grid {
@@ -964,9 +992,49 @@
   margin-top: 50px;
 }
 
+.process-carousel {
+  display: none;
+}
+
 .process-step {
   border-top: 1px solid var(--border);
   padding-top: 26px;
+}
+
+.process-section .process-content .process-grid>.process-step,
+.process-section .process-content .process-carousel-step,
+.process-section .process-content>.section-action {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step,
+.process-section .process-content.is-visible .process-carousel-step,
+.process-section .process-content.is-visible>.section-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step:nth-child(1),
+.process-section .process-content.is-visible .process-carousel-step:nth-child(1) {
+  transition-delay: 180ms;
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step:nth-child(2),
+.process-section .process-content.is-visible .process-carousel-step:nth-child(2) {
+  transition-delay: 300ms;
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step:nth-child(3),
+.process-section .process-content.is-visible .process-carousel-step:nth-child(3) {
+  transition-delay: 420ms;
+}
+
+.process-section .process-content.is-visible>.section-action {
+  transition-delay: 620ms;
 }
 
 .step-top {
@@ -1932,17 +2000,114 @@
     font-size: 28px;
   }
 
-  .about-copy h3 {
-    margin-top: 22px;
+  .process-grid {
+    display: none;
   }
 
-  .process-grid {
-    grid-template-columns: 1fr;
-    gap: 29px;
+  .process-section .section-heading {
+    text-align: center;
+  }
+
+  .process-section .section-heading h2 {
+    font-size: 28px;
+  }
+
+  .process-section .section-heading p {
+    max-width: 390px;
+    margin-inline: auto;
+  }
+
+  .process-carousel {
+    display: block;
+    width: 100%;
     margin-top: 31px;
   }
 
-  .process-step {
+  .process-carousel-viewport {
+    position: relative;
+    overflow: hidden;
+    touch-action: pan-y;
+  }
+
+  .process-carousel-track {
+    display: flex;
+    transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .process-carousel-step {
+    flex: 0 0 100%;
+    min-height: 190px;
+    padding: 20px 38px 12px;
+  }
+
+  .process-carousel-step[aria-hidden="true"] {
+    pointer-events: none;
+  }
+
+  .process-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: inline-flex;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--foreground);
+    transform: translateY(-50%);
+  }
+
+  .process-carousel-arrow svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .process-carousel-arrow:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .process-carousel-arrow-prev {
+    left: 0;
+  }
+
+  .process-carousel-arrow-next {
+    right: 0;
+  }
+
+  .process-carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .process-carousel-indicators button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: var(--border);
+    transition:
+      width 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .process-carousel-indicators button.is-active {
+    width: 22px;
+    background: var(--primary);
+  }
+
+  .process-carousel .step-top {
+    margin-bottom: 13px;
+  }
+
+  .process-carousel .process-step {
     padding-top: 20px;
   }
 
@@ -1960,6 +2125,19 @@
 
   .process-step p {
     max-width: 310px;
+  }
+
+  .process-carousel-step h3,
+  .process-carousel-step p {
+    text-align: center;
+  }
+
+  .process-carousel-step p {
+    margin-inline: auto;
+  }
+
+  .process-section .section-action {
+    justify-content: center;
   }
 
   .location-grid {
@@ -2097,24 +2275,45 @@
     transform: none;
   }
 
-  .pain-section .pain-heading > .eyebrow,
-  .pain-section .pain-heading > h2,
-  .pain-section .pain-heading > p,
-  .pain-section .pain-grid > .pain-card,
+  .pain-section .pain-heading>.eyebrow,
+  .pain-section .pain-heading>h2,
+  .pain-section .pain-heading>p,
+  .pain-section .pain-grid>.pain-card,
   .pain-section .section-action {
     opacity: 1;
     transform: none;
     transition: none;
   }
 
-  .treatment-section .treatment-heading > .eyebrow,
-  .treatment-section .treatment-heading > h2,
-  .treatment-section .treatment-heading > p,
-  .treatment-section .treatment-grid > .treatment-card,
+  .treatment-section .treatment-heading>.eyebrow,
+  .treatment-section .treatment-heading>h2,
+  .treatment-section .treatment-heading>p,
+  .treatment-section .treatment-grid>.treatment-card,
   .treatment-section .home-treatment {
     opacity: 1;
     translate: none;
     animation: none;
+    transition: none;
+  }
+
+  .about-grid .about-image,
+  .about-copy h2,
+  .about-description p,
+  .about-copy>.appointment-button {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .process-section .process-grid>.process-step,
+  .process-section .process-carousel-step,
+  .process-section .process-content>.section-action {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .process-carousel-track {
     transition: none;
   }
 }
