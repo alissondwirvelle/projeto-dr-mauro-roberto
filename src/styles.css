@@ -413,6 +413,16 @@
   color: var(--on-ink-muted);
 }
 
+.hero-professional-id {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.8px;
+  color: var(--on-ink-muted);
+}
+
 .hero-content h1>span {
   display: block;
   margin-top: 13px;
@@ -1075,32 +1085,90 @@
   margin-top: 40px;
 }
 
+.location-heading {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.location-heading>p {
+  margin: 0;
+}
+
+.location-section .location-content.reveal {
+  animation: none;
+}
+
+.location-heading h2 strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.location-section .location-heading>div,
+.location-section .location-heading>p,
+.location-section .location-place,
+.location-section .location-home {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.location-section .location-content.is-visible .location-heading>div,
+.location-section .location-content.is-visible .location-heading>p,
+.location-section .location-content.is-visible .location-place,
+.location-section .location-content.is-visible .location-home {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.location-section .location-content.is-visible .location-heading>p {
+  transition-delay: 100ms;
+}
+
+.location-section .location-content.is-visible .location-place {
+  transition-delay: 220ms;
+}
+
+.location-section .location-content.is-visible .location-home {
+  transition-delay: 340ms;
+}
+
 .location-place {
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
 }
 
-.room-image {
+.presence-image {
+  display: flex;
   height: 265px;
   position: relative;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, oklch(0.99 0.008 80) 0 58px, transparent 59px),
+    var(--secondary);
 }
 
-.room-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.presence-image-mark {
+  display: inline-flex;
+  width: 112px;
+  height: 112px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--background);
+  color: var(--primary);
+  box-shadow: 0 14px 32px oklch(0.19 0.004 80 / 0.08);
 }
 
-.room-image small {
-  position: absolute;
-  right: 14px;
-  bottom: 13px;
-  padding: 5px 8px;
-  font-size: 9px;
-  color: var(--inverse);
-  background: var(--ink);
-  border-radius: 3px;
+.presence-image-mark svg {
+  width: 42px;
+  height: 42px;
 }
 
 .location-copy {
@@ -1131,6 +1199,26 @@
 .location-detail svg {
   color: var(--primary);
   flex-shrink: 0;
+}
+
+.location-home .location-detail span {
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.location-detail a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+
+.location-detail a:hover {
+  color: var(--primary);
+  text-decoration-color: currentColor;
 }
 
 .location-home {
@@ -1847,6 +1935,10 @@
     margin-top: 27px;
   }
 
+  .hero-professional-id {
+    font-size: 9px;
+  }
+
   .hero-content h1>span {
     font-size: 39px;
     margin-top: 17px;
@@ -2146,27 +2238,105 @@
     margin-top: 27px;
   }
 
-  .room-image {
-    height: 230px;
+  .location-heading {
+    text-align: center;
+  }
+
+  .location-heading h2 {
+    max-width: 390px;
+    margin-inline: auto;
+    font-size: clamp(26px, 7.5vw, 30px);
+    line-height: 1.2;
+  }
+
+  .location-heading>p {
+    max-width: 390px;
+    margin-inline: auto;
+    font-size: clamp(13px, 3.8vw, 15px);
+    line-height: 1.7;
+  }
+
+  .location-place,
+  .location-home {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+
+  .presence-image {
+    height: clamp(190px, 58vw, 230px);
+  }
+
+  .presence-image-mark {
+    width: clamp(88px, 27vw, 112px);
+    height: clamp(88px, 27vw, 112px);
+  }
+
+  .presence-image-mark svg {
+    width: clamp(34px, 10vw, 42px);
+    height: clamp(34px, 10vw, 42px);
   }
 
   .location-copy {
-    padding: 24px;
+    padding: 24px clamp(20px, 6vw, 28px);
+    text-align: center;
   }
 
   .location-copy h3 {
-    font-size: 23px;
+    font-size: clamp(21px, 6vw, 24px);
+  }
+
+  .location-copy .eyebrow {
+    justify-content: center;
+  }
+
+  .location-copy p {
+    max-width: 340px;
+    margin-inline: auto;
+    font-size: clamp(12px, 3.5vw, 14px);
+  }
+
+  .location-detail {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .location-detail a {
+    line-height: 1.65;
+    overflow-wrap: anywhere;
   }
 
   .location-home {
-    padding: 29px;
+    padding: 29px clamp(22px, 7vw, 34px);
+    text-align: center;
+  }
+
+  .location-home .large-house {
+    margin-inline: auto;
+  }
+
+  .location-home .eyebrow {
+    justify-content: center;
   }
 
   .location-home h3 {
-    font-size: 31px;
+    font-size: clamp(28px, 8vw, 32px);
+  }
+
+  .location-home p {
+    max-width: 340px;
+    margin-inline: auto;
+    font-size: clamp(12px, 3.5vw, 14px);
+  }
+
+  .location-home .location-detail {
+    margin-inline: auto;
   }
 
   .location-home .appointment-button {
+    width: min(100%, 260px);
+    min-height: 44px;
     font-size: 11px;
     padding-inline: 15px;
   }
@@ -2314,6 +2484,15 @@
   }
 
   .process-carousel-track {
+    transition: none;
+  }
+
+  .location-section .location-heading>div,
+  .location-section .location-heading>p,
+  .location-section .location-place,
+  .location-section .location-home {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }

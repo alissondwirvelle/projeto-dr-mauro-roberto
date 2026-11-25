@@ -41,7 +41,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import hero from "@/assets/physio-hero.asset.json";
-import room from "@/assets/physio-room.asset.json";
 import doctorPortrait from "@/assets/images/IMG_6259-1.jpeg";
 import mauroPortrait from "@/assets/images/IMG_5034.png";
 import headerLogo from "@/assets/images/logo-3d.png";
@@ -50,7 +49,7 @@ import { whatsappDisplay, whatsappUrl } from "@/lib/contact";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mauro Roberto | Fisioterapia e qualidade de vida" },
+      { title: "Mauro Roberto | Fisioterapia e qualidade de vida." },
       {
         name: "description",
         content:
@@ -314,6 +313,7 @@ function Index() {
               </div>
               <h1>
                 Mauro Roberto
+                <small className="hero-professional-id">CREFITO 1 — 455966-F</small>
                 <span>
                   Fisioterapia para
                   <br />
@@ -579,36 +579,44 @@ function Index() {
         </section>
 
         <section id="atendimento" className="section location-section">
-          <div className="container reveal">
-            <div className="section-heading split-heading">
+          <div className="container location-content reveal">
+            <div className="section-heading split-heading location-heading">
               <div>
                 <span className="eyebrow">PERTO DE VOCÊ</span>
-                <h2>O cuidado, onde você precisa.</h2>
+                <h2>
+                  Seu atendimento, da forma que você <strong>precisa</strong>.
+                </h2>
               </div>
-              <p>
-                Encontre a modalidade que faz sentido
-                <br className="desktop-break" /> para o seu momento.
-              </p>
+              <p>Encontre a modalidade que faz sentido para o seu momento.</p>
             </div>
             <div className="location-grid">
               <article className="location-place">
-                <div className="room-image">
-                  <img
-                    src={room.url}
-                    alt="Imagem ilustrativa de uma sala de fisioterapia com maca e iluminação natural"
-                    loading="lazy"
-                  />
-                  <small>Imagem ilustrativa</small>
+                <div className="presence-image" aria-hidden="true">
+                  <span className="presence-image-mark">
+                    <MapPin strokeWidth={1.25} />
+                  </span>
                 </div>
                 <div className="location-copy">
                   <span className="eyebrow">
-                    <MapPin size={14} /> NO CONSULTÓRIO
+                    <MapPin size={14} /> NA RESIDÊNCIA DO PROFISSIONAL
                   </span>
                   <h3>Atendimento presencial</h3>
-                  <p>Um espaço dedicado à sua avaliação e ao seu cuidado.</p>
+                  <p>
+                    Um atendimento individualizado, realizado na residência do profissional, com
+                    atenção às suas necessidades.
+                  </p>
                   <div className="location-detail">
                     <MapPin size={17} />
-                    <span>[Endereço do espaço de atendimento]</span>
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                        "Rua E, nº 40 — Vila da Cohab, Bonito – PE.",
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Abrir o endereço no Google Maps"
+                    >
+                      Rua E, nº 40 — Vila da Cohab, Bonito – PE.
+                    </a>
                   </div>
                 </div>
               </article>
@@ -626,9 +634,9 @@ function Index() {
                 </p>
                 <div className="location-detail">
                   <MapPin size={17} />
-                  <span>[Regiões atendidas a confirmar]</span>
+                  <span>Regiões atendidas: Bonito, Barra de Guabiraba, Camocim de São Félix e São Joaquim.</span>
                 </div>
-                {appointment("Consultar atendimento domiciliar")}
+                {appointment("Consultar disponibilidade")}
               </article>
             </div>
           </div>
