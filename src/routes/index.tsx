@@ -33,7 +33,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import hero from "@/assets/physio-hero.asset.json";
-import doctorPortrait from "@/assets/images/IMG_6259-1.jpeg";
+import doctorPortrait from "@/assets/images/IMG_5031.JPG.jpeg";
 import mauroPortrait from "@/assets/images/IMG_5034.png";
 import headerLogo from "@/assets/images/logo-3d.png";
 import footerLogo from "@/assets/images/logo-2.png";
