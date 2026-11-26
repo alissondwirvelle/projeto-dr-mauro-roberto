@@ -466,11 +466,6 @@ function Index() {
                 alt="Mauro Roberto, fisioterapeuta"
                 loading="lazy"
               />
-              <figcaption>
-                <span>
-                  <HeartHandshake size={20} /> Cuidado humano. Movimento com propósito.
-                </span>
-              </figcaption>
             </figure>
             <div className="about-copy">
               <span className="eyebrow">SOBRE MIM</span>
