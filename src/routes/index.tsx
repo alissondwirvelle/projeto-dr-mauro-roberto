@@ -434,9 +434,6 @@ function Index() {
                   <h3>{item.title}</h3>
                   {item.detail && <small>{item.detail}</small>}
                   <p>{item.text}</p>
-                  <a href="#contato" aria-label={`Consultar atendimento de ${item.title}`}>
-                    <ArrowUpRight size={20} />
-                  </a>
                 </article>
               ))}
             </div>
@@ -850,7 +847,10 @@ function Index() {
                   rel="noopener noreferrer"
                   aria-label="Conversar pelo WhatsApp"
                 >
-                  <span className="contact-detail-label">TELEFONE / WHATSAPP</span>
+                  <span className="contact-detail-label">
+                    <span className="contact-detail-label-desktop">TELEFONE / WHATSAPP</span>
+                    <span className="contact-detail-label-mobile">WHATSAPP</span>
+                  </span>
                   <small>{whatsappDisplay}</small>
                 </a>
               </div>
