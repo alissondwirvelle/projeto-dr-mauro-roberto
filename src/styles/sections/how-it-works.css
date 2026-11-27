@@ -1,0 +1,97 @@
+
+
+.process-section {
+  background: var(--secondary);
+}
+
+.process-section .process-content.reveal {
+  animation: none;
+}
+
+.process-section .process-content .section-heading h2 strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.process-carousel {
+  display: none;
+}
+
+.process-step {
+  border-top: 1px solid var(--border);
+  padding-top: 26px;
+}
+
+.process-section .process-content .process-grid>.process-step,
+.process-section .process-content .process-carousel-step,
+.process-section .process-content>.section-action {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step,
+.process-section .process-content.is-visible .process-carousel-step,
+.process-section .process-content.is-visible>.section-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step:nth-child(1),
+.process-section .process-content.is-visible .process-carousel-step:nth-child(1) {
+  transition-delay: 180ms;
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step:nth-child(2),
+.process-section .process-content.is-visible .process-carousel-step:nth-child(2) {
+  transition-delay: 300ms;
+}
+
+.process-section .process-content.is-visible .process-grid>.process-step:nth-child(3),
+.process-section .process-content.is-visible .process-carousel-step:nth-child(3) {
+  transition-delay: 420ms;
+}
+
+.process-section .process-content.is-visible>.section-action {
+  transition-delay: 620ms;
+}
+
+.step-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.step-top span {
+  font-family: var(--font-display);
+  color: var(--primary);
+  font-size: 34px;
+  font-weight: 500;
+}
+
+.step-top svg {
+  width: 25px;
+  height: 25px;
+  color: var(--muted-foreground);
+}
+
+.process-step h3 {
+  font-size: 19px;
+}
+
+.process-step p {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+  margin-top: 12px;
+}

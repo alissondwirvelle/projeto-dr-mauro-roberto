@@ -1,0 +1,203 @@
+
+
+.treatment-section {
+  background: var(--secondary);
+}
+
+.treatment-section .treatment-content {
+  animation: none;
+}
+
+.treatment-heading {
+  max-width: 850px;
+  margin-inline: auto;
+}
+
+.treatment-heading h2 {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.treatment-heading p {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.treatment-card {
+  grid-column: span 2;
+  background: var(--background);
+  padding: 29px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  min-height: 234px;
+  position: relative;
+  transition:
+    transform 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+.treatment-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.treatment-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+.treatment-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.treatment-card-top svg {
+  width: 29px;
+  height: 29px;
+  color: var(--primary);
+}
+
+.treatment-card-top span {
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+
+.treatment-card h3 {
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.treatment-card small {
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: var(--primary);
+  display: block;
+  margin-top: 6px;
+}
+
+.treatment-card p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--muted-foreground);
+  margin-top: 11px;
+  max-width: 90%;
+}
+
+.home-treatment {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  background: var(--ink);
+  color: var(--inverse);
+  margin-top: 25px;
+  padding: 38px;
+  border-radius: 6px;
+}
+
+.home-treatment-icon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  color: var(--primary);
+  flex: 0 0 34px;
+}
+
+.home-treatment-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.home-treatment-icon svg:last-child {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 13px;
+  height: 13px;
+  background: var(--ink);
+}
+
+.home-treatment h3 {
+  font-size: 25px;
+  margin-top: 8px;
+}
+
+.home-treatment p {
+  color: var(--on-ink-muted);
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+.home-treatment>.appointment-button {
+  margin-left: auto;
+}
+
+.treatment-section .treatment-heading>.eyebrow,
+.treatment-section .treatment-heading>h2,
+.treatment-section .treatment-heading>p,
+.treatment-section .treatment-grid>.treatment-card,
+.treatment-section .home-treatment {
+  opacity: 0;
+  translate: 0 12px;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-heading>.eyebrow,
+.treatment-section .treatment-content.is-visible .treatment-heading>h2,
+.treatment-section .treatment-content.is-visible .treatment-heading>p,
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card,
+.treatment-section .treatment-content.is-visible .home-treatment {
+  animation: treatment-reveal 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-heading>h2 {
+  animation-delay: 70ms;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-heading>p {
+  animation-delay: 140ms;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(1) {
+  animation-delay: 250ms;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(2) {
+  animation-delay: 360ms;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(3) {
+  animation-delay: 470ms;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(4) {
+  animation-delay: 580ms;
+}
+
+.treatment-section .treatment-content.is-visible .treatment-grid>.treatment-card:nth-child(5) {
+  animation-delay: 690ms;
+}
+
+.treatment-section .treatment-content.is-visible .home-treatment {
+  animation-delay: 1220ms;
+}
+
+@keyframes treatment-reveal {
+  from {
+    opacity: 0;
+    translate: 0 12px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

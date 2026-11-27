@@ -1,0 +1,176 @@
+
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.location-heading {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.location-heading>p {
+  margin: 0;
+}
+
+.location-section .location-content.reveal {
+  animation: none;
+}
+
+.location-heading h2 strong {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.location-section .location-heading>div,
+.location-section .location-heading>p,
+.location-section .location-place,
+.location-section .location-home {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.location-section .location-content.is-visible .location-heading>div,
+.location-section .location-content.is-visible .location-heading>p,
+.location-section .location-content.is-visible .location-place,
+.location-section .location-content.is-visible .location-home {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.location-section .location-content.is-visible .location-heading>p {
+  transition-delay: 100ms;
+}
+
+.location-section .location-content.is-visible .location-place {
+  transition-delay: 220ms;
+}
+
+.location-section .location-content.is-visible .location-home {
+  transition-delay: 340ms;
+}
+
+.location-place {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.presence-image {
+  display: flex;
+  height: 265px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, oklch(0.99 0.008 80) 0 58px, transparent 59px),
+    var(--secondary);
+}
+
+.presence-image-mark {
+  display: inline-flex;
+  width: 112px;
+  height: 112px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--background);
+  color: var(--primary);
+  box-shadow: 0 14px 32px oklch(0.19 0.004 80 / 0.08);
+}
+
+.presence-image-mark svg {
+  width: 42px;
+  height: 42px;
+}
+
+.location-copy {
+  padding: 29px;
+}
+
+.location-copy h3 {
+  margin-top: 12px;
+  font-size: 24px;
+}
+
+.location-copy p {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+
+.location-detail {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  margin-top: 22px;
+}
+
+.location-detail svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.location-home .location-detail span {
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.location-detail a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+
+.location-detail a:hover {
+  color: var(--primary);
+  text-decoration-color: currentColor;
+}
+
+.location-home {
+  background: var(--secondary);
+  border-radius: 6px;
+  padding: 38px;
+}
+
+.large-house {
+  width: 58px;
+  height: 58px;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 25px;
+}
+
+.location-home h3 {
+  font-size: 35px;
+  margin-top: 16px;
+  line-height: 1.25;
+}
+
+.location-home p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted-foreground);
+  max-width: 350px;
+  margin-top: 18px;
+}
+
+.location-home>.appointment-button {
+  margin-top: 25px;
+}

@@ -1,0 +1,113 @@
+
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 78px;
+  align-items: center;
+}
+
+.about-grid.reveal {
+  animation: none;
+}
+
+.about-grid .about-image,
+.about-copy h2,
+.about-description p,
+.about-copy>.appointment-button {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-grid .about-image {
+  transform: translateX(-14px);
+}
+
+.about-grid.is-visible .about-image,
+.about-grid.is-visible .about-copy h2,
+.about-grid.is-visible .about-description p,
+.about-grid.is-visible .about-copy>.appointment-button {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.about-grid.is-visible .about-copy h2 {
+  transition-delay: 80ms;
+}
+
+.about-grid.is-visible .about-description p:first-child {
+  transition-delay: 170ms;
+}
+
+.about-grid.is-visible .about-description p:last-child {
+  transition-delay: 280ms;
+}
+
+.about-grid.is-visible .about-copy>.appointment-button {
+  transition-delay: 400ms;
+}
+
+.about-image {
+  position: relative;
+  margin: 0;
+  height: 510px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.about-image>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.about-image figcaption {
+  background: var(--hero-bottom-gradient);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 25px 25px;
+  color: var(--inverse);
+}
+
+.about-image figcaption>span {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.about-copy>.eyebrow {
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.about-copy>.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 2px;
+  flex: 0 0 24px;
+  background: var(--primary);
+}
+
+.about-copy h2 {
+  font-size: 32px;
+}
+
+.about-description {
+  color: var(--muted-foreground);
+  font-size: 15px;
+  line-height: 1.9;
+  display: grid;
+  gap: 14px;
+  margin-top: 17px;
+}
+
+.about-copy>.appointment-button {
+  margin-top: 24px;
+}
