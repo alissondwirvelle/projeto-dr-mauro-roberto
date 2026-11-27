@@ -63,7 +63,7 @@ export function Header() {
               key={id}
               href={`#${id}`}
               className={`${activeSection === id ? "is-active " : ""}header-sequence-${index + 1}`}
-              aria-current={activeSection === id ? "page" : undefined}
+              aria-current={activeSection === id ? "location" : undefined}
               style={{
                 animationDelay: `${120 + index * 150}ms`,
               }}
@@ -95,7 +95,7 @@ export function Header() {
             key={id}
             href={`#${id}`}
             className={activeSection === id ? "is-active" : undefined}
-            aria-current={activeSection === id ? "page" : undefined}
+            aria-current={activeSection === id ? "location" : undefined}
             onClick={() => setMenuOpen(false)}
           >
             {label}

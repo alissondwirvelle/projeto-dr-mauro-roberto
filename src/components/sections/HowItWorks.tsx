@@ -37,18 +37,21 @@ export function HowItWorks() {
             passos.
           </p>
         </div>
-        <div className="process-grid">
+        <ol
+          className="process-grid"
+          style={{ listStyle: "none", marginBlockEnd: 0, padding: 0 }}
+        >
           {processSteps.map((item, index) => (
-            <article className="process-step" key={item.title}>
+            <li className="process-step" key={item.title}>
               <div className="step-top">
                 <span>0{index + 1}</span>
                 <item.icon strokeWidth={1.5} />
               </div>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ol>
         <div
           className="process-carousel"
           role="region"
@@ -86,12 +89,17 @@ export function HowItWorks() {
               swipeStartX.current = null;
             }}
           >
-            <div
+            <ol
               className="process-carousel-track"
-              style={{ transform: `translateX(-${processStepIndex * 100}%)` }}
+              style={{
+                transform: `translateX(-${processStepIndex * 100}%)`,
+                listStyle: "none",
+                margin: 0,
+                padding: 0,
+              }}
             >
               {processSteps.map((item, index) => (
-                <article
+                <li
                   className="process-step process-carousel-step"
                   key={item.title}
                   aria-hidden={processStepIndex !== index}
@@ -103,9 +111,9 @@ export function HowItWorks() {
                   </div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
-                </article>
+                </li>
               ))}
-            </div>
+            </ol>
             <button
               type="button"
               className="process-carousel-arrow process-carousel-arrow-prev"
