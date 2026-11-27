@@ -34,6 +34,7 @@ export function Header() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuWasOpenRef = useRef(false);
 
   useEffect(() => {
     const updateHeader = () => {
@@ -54,13 +55,29 @@ export function Header() {
     return () => window.removeEventListener("scroll", updateHeader);
   }, []);
 
+  useEffect(() => {
+    const shouldRestoreFocus = menuWasOpenRef.current && !menuOpen;
+    menuWasOpenRef.current = menuOpen;
+
+    const frameId = shouldRestoreFocus
+      ? window.requestAnimationFrame(() => {
+        menuButtonRef.current?.focus();
+      })
+      : undefined;
+
+    return () => {
+      if (frameId !== undefined) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
+  }, [menuOpen]);
+
   return (
     <header
       className={`site-header${headerScrolled ? " is-scrolled" : ""}`}
       onKeyDown={(event) => {
         if (menuOpen && event.key === "Escape") {
           setMenuOpen(false);
-          menuButtonRef.current?.focus();
         }
       }}
     >
@@ -109,7 +126,6 @@ export function Header() {
             aria-current={activeSection === id ? "location" : undefined}
             onClick={() => {
               setMenuOpen(false);
-              menuButtonRef.current?.focus();
             }}
           >
             {label}
