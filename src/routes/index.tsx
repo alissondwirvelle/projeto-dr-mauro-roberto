@@ -11,24 +11,68 @@ import { HowItWorks } from "@/components/sections/HowItWorks";
 import { PainPoints } from "@/components/sections/PainPoints";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Treatments } from "@/components/sections/Treatments";
+import { clinicPostalAddress, whatsappDisplay } from "@/lib/contact";
+
+const pageTitle = "Mauro Roberto | Fisioterapia em Bonito, Pernambuco";
+const pageDescription =
+  "Fisioterapia presencial e domiciliar em Bonito, Pernambuco. Conheça os tratamentos e recursos terapêuticos de Mauro Roberto.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mauro Roberto | Fisioterapia e qualidade de vida." },
-      {
-        name: "description",
-        content:
-          "Conheça os tratamentos de fisioterapia de Mauro Roberto, com atendimento presencial e domiciliar. Dê o primeiro passo para recuperar seu bem-estar.",
-      },
-      { property: "og:title", content: "Mauro Roberto | Fisioterapia e qualidade de vida" },
-      {
-        property: "og:description",
-        content:
-          "Fisioterapia, movimento e cuidado individualizado. Conheça os tratamentos e as modalidades de atendimento.",
-      },
+      { title: pageTitle },
+      { name: "description", content: pageDescription },
+      { property: "og:title", content: pageTitle },
+      { property: "og:description", content: pageDescription },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: pageTitle },
+      { name: "twitter:description", content: pageDescription },
+      {
+        "script:ld+json": {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Mauro Roberto",
+          description:
+            "Atendimento fisioterapêutico presencial e domiciliar em Bonito, Pernambuco.",
+          telephone: whatsappDisplay,
+          address: {
+            "@type": "PostalAddress",
+            ...clinicPostalAddress,
+          },
+          areaServed: [
+            "Bonito, Pernambuco",
+            "Barra de Guabiraba",
+            "Camocim de São Félix",
+            "São Joaquim",
+          ],
+          employee: {
+            "@type": "Person",
+            name: "Mauro Roberto",
+            jobTitle: "Fisioterapeuta",
+            identifier: "CREFITO 1 — 455966-F",
+          },
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Serviços de fisioterapia",
+            itemListElement: [
+              "Fisioterapia convencional",
+              "Quiropraxia",
+              "Ventosaterapia",
+              "Liberação miofascial",
+              "Eletroterapia",
+              "Atendimento fisioterapêutico domiciliar",
+            ].map((name) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name,
+              },
+            })),
+          },
+        },
+      },
     ],
   }),
   component: Index,
