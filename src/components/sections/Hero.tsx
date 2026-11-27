@@ -1,5 +1,5 @@
 import { ArrowDown } from "lucide-react";
-import doctorPortrait from "@/assets/images/IMG_5031.JPG.jpeg";
+import doctorPortrait from "@/assets/images/hero-portrait.webp";
 import { AppointmentButton } from "@/components/AppointmentButton";
 
 export function Hero() {
@@ -32,6 +32,8 @@ export function Hero() {
             className="hero-portrait"
             src={doctorPortrait}
             alt="Dr. Mauro Roberto"
+            width={1380}
+            height={2070}
             fetchPriority="high"
           />
         </div>

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ChevronRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppointmentButton } from "@/components/AppointmentButton";
-import headerLogo from "@/assets/images/logo-3d.png";
+import headerLogo from "@/assets/images/header-logo.webp";
 
 const navigation = [
   ["Início", "inicio"],

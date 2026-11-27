@@ -1,4 +1,4 @@
-import mauroPortrait from "@/assets/images/IMG_5034.PNG";
+import mauroPortrait from "@/assets/images/about-portrait.webp";
 import { AppointmentButton } from "@/components/AppointmentButton";
 
 export function About() {

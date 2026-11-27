@@ -1,6 +1,6 @@
 import { Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import footerLogo from "@/assets/images/logo-2.png";
+import footerLogo from "@/assets/images/footer-logo.webp";
 
 function Brand({ inverted = false }: { inverted?: boolean }) {
   return (
@@ -14,6 +14,7 @@ function Brand({ inverted = false }: { inverted?: boolean }) {
           src={footerLogo}
           alt="Mauro Roberto"
           className="footer-logo"
+          loading="lazy"
         />
       ) : (
         <>
