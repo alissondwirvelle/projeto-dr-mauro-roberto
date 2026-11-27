@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        appointment: "bg-primary text-primary-foreground hover:bg-primary/90 appointment-button",
+        appointment: "bg-primary text-inverse hover:bg-primary/90 appointment-button",
         quiet:
           "border border-current bg-transparent text-inverse hover:bg-inverse/10 appointment-button",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
