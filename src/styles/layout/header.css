@@ -134,11 +134,11 @@
 }
 
 .desktop-nav a:hover {
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 .desktop-nav a.is-active {
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 .desktop-nav a:hover::after {

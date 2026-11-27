@@ -48,6 +48,6 @@
 
   ::selection {
     background: var(--primary);
-    color: var(--inverse);
+    color: var(--ink);
   }
 }

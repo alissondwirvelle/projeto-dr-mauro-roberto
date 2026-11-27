@@ -57,7 +57,7 @@
 
 .faq-list button:hover {
   text-decoration: none;
-  color: var(--primary);
+  color: var(--primary-text);
 }
 
 .faq-list [role="region"] {

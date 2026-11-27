@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AppointmentButton } from "@/components/AppointmentButton";
@@ -33,6 +33,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
   const [headerScrolled, setHeaderScrolled] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const updateHeader = () => {
@@ -54,7 +55,15 @@ export function Header() {
   }, []);
 
   return (
-    <header className={`site-header${headerScrolled ? " is-scrolled" : ""}`}>
+    <header
+      className={`site-header${headerScrolled ? " is-scrolled" : ""}`}
+      onKeyDown={(event) => {
+        if (menuOpen && event.key === "Escape") {
+          setMenuOpen(false);
+          menuButtonRef.current?.focus();
+        }
+      }}
+    >
       <div className="container header-inner">
         <HeaderBrand />
         <nav className="desktop-nav" aria-label="Navegação principal">
@@ -75,6 +84,7 @@ export function Header() {
         <div className="header-actions">
           <AppointmentButton label="Agendar avaliação" headerButton />
           <Button
+            ref={menuButtonRef}
             variant="ghost"
             size="icon"
             className="mobile-menu-button"
@@ -89,6 +99,7 @@ export function Header() {
       <nav
         className={`mobile-nav${menuOpen ? " is-open" : ""}`}
         aria-label="Navegação no celular"
+        inert={!menuOpen}
       >
         {navigation.map(([label, id]) => (
           <a
@@ -96,7 +107,10 @@ export function Header() {
             href={`#${id}`}
             className={activeSection === id ? "is-active" : undefined}
             aria-current={activeSection === id ? "location" : undefined}
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              menuButtonRef.current?.focus();
+            }}
           >
             {label}
             <ChevronRight size={16} />

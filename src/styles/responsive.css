@@ -170,7 +170,7 @@
   }
 
   .mobile-nav a:hover {
-    color: var(--primary);
+    color: var(--primary-text);
   }
 
   .mobile-nav a+a {
@@ -178,7 +178,7 @@
   }
 
   .mobile-nav a.is-active {
-    color: var(--primary);
+    color: var(--primary-text);
   }
 }
 
@@ -670,18 +670,29 @@
   }
 
   .process-carousel-indicators button {
-    width: 7px;
-    height: 7px;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
     padding: 0;
     border: 0;
     border-radius: 999px;
-    background: var(--border);
+    background: transparent;
+  }
+
+  .process-carousel-indicators button::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--muted-foreground);
     transition:
       width 180ms ease,
       background-color 180ms ease;
   }
 
-  .process-carousel-indicators button.is-active {
+  .process-carousel-indicators button.is-active::before {
     width: 22px;
     background: var(--primary);
   }
@@ -927,18 +938,29 @@
   }
 
   .testimonial-carousel-indicators button {
-    width: 7px;
-    height: 7px;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
     padding: 0;
     border: 0;
     border-radius: 999px;
-    background: var(--border);
+    background: transparent;
+  }
+
+  .testimonial-carousel-indicators button::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--muted-foreground);
     transition:
       width 180ms ease,
       background-color 180ms ease;
   }
 
-  .testimonial-carousel-indicators button.is-active {
+  .testimonial-carousel-indicators button.is-active::before {
     width: 22px;
     background: var(--primary);
   }
@@ -1218,8 +1240,9 @@
   .desktop-nav a,
   .header-actions .appointment-button,
   .mobile-nav.is-open a {
+    animation: none !important;
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 
   .hero-content,

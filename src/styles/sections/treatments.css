@@ -79,7 +79,7 @@
 .treatment-card small {
   font-size: 8px;
   letter-spacing: 1.8px;
-  color: var(--primary);
+  color: var(--primary-text);
   display: block;
   margin-top: 6px;
 }
