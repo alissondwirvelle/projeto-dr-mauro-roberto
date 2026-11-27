@@ -414,7 +414,7 @@
   }
 
   .hero-portrait-frame {
-    width: min(100%, 320px);
+    width: min(100%, 360px);
   }
 
   .hero-eyebrow {
@@ -1332,5 +1332,19 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1100px) {
+  .hero-portrait {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-portrait {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 14%);
   }
 }

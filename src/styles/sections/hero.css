@@ -32,6 +32,28 @@
   border-radius: 20px;
 }
 
+@media (min-width: 1101px) {
+  .hero-portrait-frame {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: min(48vw, 720px);
+    z-index: 0;
+  }
+
+  .hero-portrait {
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+  }
+
+  .hero-content {
+    z-index: 1;
+  }
+}
+
 .hero-content {
   position: relative;
   max-width: 620px;
