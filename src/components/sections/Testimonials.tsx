@@ -1,6 +1,27 @@
 import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote, UserRound } from "lucide-react";
 
+const testimonials = [
+  {
+    id: 1,
+    quote: "[Espaço reservado para um depoimento real, publicado após confirmação e autorização do paciente.]",
+    name: "[Nome do paciente]",
+    caption: "Depoimento a inserir",
+  },
+  {
+    id: 2,
+    quote: "[Espaço reservado para um depoimento real, publicado após confirmação e autorização do paciente.]",
+    name: "[Nome do paciente]",
+    caption: "Depoimento a inserir",
+  },
+  {
+    id: 3,
+    quote: "[Espaço reservado para um depoimento real, publicado após confirmação e autorização do paciente.]",
+    name: "[Nome do paciente]",
+    caption: "Depoimento a inserir",
+  },
+] as const;
+
 export function Testimonials() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const testimonialSwipeStartX = useRef<number | null>(null);
@@ -19,19 +40,16 @@ export function Testimonials() {
           </p>
         </div>
         <div className="testimonial-grid">
-          {[1, 2, 3].map((number) => (
-            <article className="testimonial-card" key={number}>
+          {testimonials.map((testimonial) => (
+            <article className="testimonial-card" key={testimonial.id}>
               <Quote strokeWidth={1.4} />
-              <p>
-                [Espaço reservado para um depoimento real, publicado após confirmação e autorização
-                do paciente.]
-              </p>
+              <p>{testimonial.quote}</p>
               <div>
                 <span className="patient-avatar">
                   <UserRound size={19} />
                 </span>
                 <span>
-                  [Nome do paciente]<small>Depoimento a inserir</small>
+                  {testimonial.name}<small>{testimonial.caption}</small>
                 </span>
               </div>
             </article>
@@ -78,24 +96,21 @@ export function Testimonials() {
               className="testimonial-carousel-track"
               style={{ transform: `translateX(-${testimonialIndex * 100}%)` }}
             >
-              {[1, 2, 3].map((number, index) => (
+              {testimonials.map((testimonial, index) => (
                 <article
                   className="testimonial-card testimonial-carousel-card"
-                  key={number}
+                  key={testimonial.id}
                   aria-hidden={testimonialIndex !== index}
                   aria-label={`Depoimento ${index + 1} de 3`}
                 >
                   <Quote strokeWidth={1.4} />
-                  <p>
-                    [Espaço reservado para um depoimento real, publicado após confirmação e
-                    autorização do paciente.]
-                  </p>
+                  <p>{testimonial.quote}</p>
                   <div>
                     <span className="patient-avatar">
                       <UserRound size={19} />
                     </span>
                     <span>
-                      [Nome do paciente]<small>Depoimento a inserir</small>
+                      {testimonial.name}<small>{testimonial.caption}</small>
                     </span>
                   </div>
                 </article>
@@ -125,10 +140,10 @@ export function Testimonials() {
             </button>
           </div>
           <div className="testimonial-carousel-indicators" aria-label="Selecionar depoimento">
-            {[1, 2, 3].map((number, index) => (
+            {testimonials.map((testimonial, index) => (
               <button
                 type="button"
-                key={number}
+                key={testimonial.id}
                 className={testimonialIndex === index ? "is-active" : ""}
                 aria-label={`Ir para o depoimento ${index + 1}`}
                 aria-current={testimonialIndex === index ? "true" : undefined}

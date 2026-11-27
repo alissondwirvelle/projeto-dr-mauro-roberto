@@ -58,13 +58,17 @@ function Index() {
 
     const resetToHero = () => window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     resetToHero();
+    let secondAnimationFrame: number | undefined;
     const animationFrame = requestAnimationFrame(() => {
       resetToHero();
-      requestAnimationFrame(resetToHero);
+      secondAnimationFrame = requestAnimationFrame(resetToHero);
     });
 
     return () => {
       cancelAnimationFrame(animationFrame);
+      if (secondAnimationFrame !== undefined) {
+        cancelAnimationFrame(secondAnimationFrame);
+      }
       window.history.scrollRestoration = previousScrollRestoration;
     };
   }, []);

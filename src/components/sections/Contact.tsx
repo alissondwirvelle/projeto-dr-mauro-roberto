@@ -1,6 +1,6 @@
 import { MapPin, MessageCircle } from "lucide-react";
 import { AppointmentButton } from "@/components/AppointmentButton";
-import { whatsappDisplay, whatsappUrl } from "@/lib/contact";
+import { clinicAddress, clinicMapsUrl, whatsappDisplay, whatsappUrl } from "@/lib/contact";
 
 export function Contact() {
   return (
@@ -34,14 +34,12 @@ export function Contact() {
             <span>
               <span className="contact-detail-label">ENDEREÇO</span>
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  "Rua E, nº 40 — Vila da Cohab, Bonito – PE.",
-                )}`}
+                href={clinicMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Abrir o endereço no Google Maps"
               >
-                <small>Rua E, nº 40 — Vila da Cohab, Bonito – PE.</small>
+                <small>{clinicAddress}</small>
               </a>
             </span>
           </div>

@@ -1,5 +1,6 @@
 import { House, MapPin } from "lucide-react";
 import { AppointmentButton } from "@/components/AppointmentButton";
+import { clinicAddress, clinicMapsUrl } from "@/lib/contact";
 
 export function Attendance() {
   return (
@@ -33,14 +34,12 @@ export function Attendance() {
               <div className="location-detail">
                 <MapPin size={17} />
                 <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    "Rua E, nº 40 — Vila da Cohab, Bonito – PE.",
-                  )}`}
+                  href={clinicMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Abrir o endereço no Google Maps"
                 >
-                  Rua E, nº 40 — Vila da Cohab, Bonito – PE.
+                  {clinicAddress}
                 </a>
               </div>
             </div>
